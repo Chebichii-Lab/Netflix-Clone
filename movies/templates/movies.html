@@ -1,18 +1,58 @@
+{%extends 'base.html'%}
+{%block content%}
 
+<style>
+    #background {
+        background-image: url('../../static/netflix.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
 <div class="container" id="background">
     <div id="prog">
-        <h1
-            style="text-align:center; font-size:30px;">
+        <h1 style="text-align:center; font-size:30px;">
             NETFLIX AND CHILL</h1>
     </div>
     <div id="opennote">
-
-        <h3 style="text-align:center;">Hello, my name is Natasha Serem,</h3>
-        <p id="opennote"
-            style="text-align:center; font-family: 'Dancing Script', cursive; font-size: 50px;"> Welcome
+        <p id="opennote" style="text-align:center; font-family: 'Dancing Script', cursive; font-size: 50px;"> Welcome
             to NETFLIX AND CHILL!!</p>
     </div>
     </br>
 
-    
+    <h3 class="text-black">Popular on netflix</h3>
+    <div class="row">
+        {%for data in popular.results%}
+        <div class=" m-1">
+            <a href="youtube/{{data.id}}">
+                <img class="" src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px"
+                    alt="Card image cap">
+            </a>
+        </div>
+        {%endfor%}
+    </div>
+    <h3 class="text-black">Upcoming ones</h3>
+    <div class="row">
+        {%for data in upcoming.results%}
+        <div class="card m-1">
+            <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px" alt="image">
+        </div>
+        {%endfor%}
+    </div>
+    <h3 class="text-black">Latest</h3>
+    {%for data in latest.results%}
+    <p>{{data.original_title}}</p>
+    <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px" alt="image">
+    {%endfor%}
+    <h3 class="text-black">Top rated</h3>
+    <div class="row">
+        {%for data in toprated.results%}
+        <div class="card m-1">
+            <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" width="150px" alt="image">
+        </div>
+        {%endfor%}
+    </div>
+
+
 </div>
+{% endblock %}

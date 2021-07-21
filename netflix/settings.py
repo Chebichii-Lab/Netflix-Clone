@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies.apps.MoviesConfig',
-    # 'bootstrap5',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
